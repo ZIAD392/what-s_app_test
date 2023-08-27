@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--    sale.report_saleorder-->
+        <template id="report_quotation_inherit" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//div[hasclass('page')]//div[5]" position="after">
+<!--                <div t-if="doc.user_id.name and doc.user_id.company_id.name == 'Sara International for Safety Equipment'">-->
+<!--                    <strong>Salesperson:</strong>-->
+<!--                    <p class="m-0" t-field="doc.user_id"/>-->
+<!--                    <br/>-->
+<!--                    <strong>TEL:</strong>-->
+<!--                    <p class="m-0" t-field="doc.user_id.phone"/>-->
+<!--                    <br/>-->
+<!--                    <strong>MOB:</strong>-->
+<!--                    <p class="m-0" t-field="doc.user_id.mobile"/>-->
+<!--                    <br/>-->
+<!--                </div>-->
+<!--&lt;!&ndash;            <xpath expr="//div[hasclass('col-auto col-3 mw-100 mb-2')]//div[4]" position="replace">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div t-if="doc.user_id.name and doc.user_id.company_id.name == 'Sara International for Safety Equipment'"&ndash;&gt;-->
+<!--&lt;!&ndash;                     class="col-auto col-3 mw-100 mb-2">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <strong>Salesperson:</strong>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="m-0" t-field="doc.user_id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <strong>TEL:</strong>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="m-0" t-field="doc.user_id.phone"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <strong>MOB:</strong>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="m-0" t-field="doc.user_id.mobile"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+                <div t-if="doc.user_id.name and doc.user_id.company_id.name == 'Sara International for Safety Equipment'"
+                     class="col-auto col-3 mw-100 mb-2">
+                    <strong>TEL:</strong>
+                    <p class="m-0" t-field="doc.user_id.phone"/>
+                </div>
+                <div t-if="doc.user_id.name and doc.user_id.company_id.name == 'Sara International for Safety Equipment'"
+                     class="col-auto col-3 mw-100 mb-2">
+                    <strong>MOB:</strong>
+                    <p class="m-0" t-field="doc.user_id.mobile"/>
+                </div>
+<!--                <br/>-->
+            </xpath>
+            <xpath expr="//table[hasclass('table')]" position="replace">
+                <table class="table table-sm o_main_table table-borderless mt-4">
+                    <div t-if="doc.user_id.company_id.name == 'Sara International for Safety Equipment'">
+                        <thead style="display: table-row-group">
+                            <tr>
+                                <th name="th_serial" class="text-start">SN</th>
+                                <th name="th_description" class="text-start">Description</th>
+                                <th name="th_quantity" class="text-end">Quantity</th>
+                                <th name="th_priceunit" class="text-end">Unit Price</th>
+                                <th name="th_discount" t-if="display_discount" class="text-end"
+                                    groups="product.group_discount_per_so_line">
+                                    <span>Disc.%</span>
+                                </th>
+                                <th name="th_taxes" class="text-end">Taxes</th>
+                                <th name="th_subtotal" class="text-end">
+                                    <span groups="account.group_show_line_subtotals_tax_excluded">Amount</span>
+                                    <span groups="account.group_show_line_subtotals_tax_included">Total Price</span>
+                                </th>
+                                <th name="th_availability" class="text-end">Availability</th>
+                            </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+
+                            <t t-set="counter" t-value="0"/>
+                            <t t-set="current_subtotal" t-value="0"/>
+
+                            <t t-foreach="lines_to_report" t-as="line">
+
+                                <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"
+                                   groups="account.group_show_line_subtotals_tax_excluded"/>
+                                <t t-set="current_subtotal" t-value="current_subtotal + line.price_total"
+                                   groups="account.group_show_line_subtotals_tax_included"/>
+
+                                <t t-set="counter" t-value="counter + 1"/>
+
+                                <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                    <t t-if="not line.display_type">
+                                        <td name="td_serial">
+                                            <span
+                                                    t-out="counter"
+                                            />
+                                        </td>
+                                        <td name="td_name">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td name="td_quantity" class="text-end">
+                                            <span t-field="line.product_uom_qty"/>
+                                            <span t-field="line.product_uom"/>
+                                        </td>
+                                        <td name="td_priceunit" class="text-end">
+                                            <span t-field="line.price_unit"/>
+                                        </td>
+                                        <td t-if="display_discount" class="text-end"
+                                            groups="product.group_discount_per_so_line">
+                                            <span t-field="line.discount"/>
+                                        </td>
+                                        <td name="td_taxes" class="text-end">
+                                            <span t-out="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"/>
+                                        </td>
+                                        <td t-if="not line.is_downpayment" name="td_subtotal"
+                                            class="text-end o_price_total">
+                                            <span t-field="line.price_subtotal"
+                                                  groups="account.group_show_line_subtotals_tax_excluded"/>
+                                            <span t-field="line.price_total"
+                                                  groups="account.group_show_line_subtotals_tax_included"/>
+                                        </td>
+                                        <td name="td_availability">
+                                            <span t-field="line.customer_lead"/>
+                                        </td>
+                                    </t>
+                                    <t t-elif="line.display_type == 'line_section'">
+                                        <td name="td_section_line" colspan="99">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <t t-set="current_section" t-value="line"/>
+                                        <t t-set="current_subtotal" t-value="0"/>
+                                    </t>
+                                    <t t-elif="line.display_type == 'line_note'">
+                                        <td name="td_note_line" colspan="99">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                    </t>
+                                </tr>
+
+                                <t t-if="current_section and (line_last or doc.order_line[line_index+1].display_type == 'line_section') and not line.is_downpayment">
+                                    <tr class="is-subtotal text-end">
+                                        <td name="td_section_subtotal" colspan="99">
+                                            <strong class="mr16">Subtotal</strong>
+                                            <span
+                                                    t-out="current_subtotal"
+                                                    t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
+                                            />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </tbody>
+                    </div>
+                    <div t-if="doc.user_id.company_id.name != 'Sara International for Safety Equipment'">
+                        <thead style="display: table-row-group">
+                            <tr>
+<!--                                <th name="th_serial" class="text-start">SN</th>-->
+                                <th name="th_description" class="text-start">Description</th>
+                                <th name="th_quantity" class="text-end">Quantity</th>
+                                <th name="th_priceunit" class="text-end">Unit Price</th>
+                                <th name="th_discount" t-if="display_discount" class="text-end"
+                                    groups="product.group_discount_per_so_line">
+                                    <span>Disc.%</span>
+                                </th>
+                                <th name="th_taxes" class="text-end">Taxes</th>
+                                <th name="th_subtotal" class="text-end">
+                                    <span groups="account.group_show_line_subtotals_tax_excluded">Amount</span>
+                                    <span groups="account.group_show_line_subtotals_tax_included">Total Price</span>
+                                </th>
+<!--                                <th name="th_availability" class="text-end">Availability</th>-->
+                            </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+
+<!--                            <t t-set="counter" t-value="0"/>-->
+                            <t t-set="current_subtotal" t-value="0"/>
+
+                            <t t-foreach="lines_to_report" t-as="line">
+
+                                <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"
+                                   groups="account.group_show_line_subtotals_tax_excluded"/>
+                                <t t-set="current_subtotal" t-value="current_subtotal + line.price_total"
+                                   groups="account.group_show_line_subtotals_tax_included"/>
+
+<!--                                <t t-set="counter" t-value="counter + 1"/>-->
+
+                                <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                    <t t-if="not line.display_type">
+<!--                                        <td name="td_serial">-->
+<!--                                            <span-->
+<!--                                                    t-out="counter"-->
+<!--                                            />-->
+<!--                                        </td>-->
+                                        <td name="td_name">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td name="td_quantity" class="text-end">
+                                            <span t-field="line.product_uom_qty"/>
+                                            <span t-field="line.product_uom"/>
+                                        </td>
+                                        <td name="td_priceunit" class="text-end">
+                                            <span t-field="line.price_unit"/>
+                                        </td>
+                                        <td t-if="display_discount" class="text-end"
+                                            groups="product.group_discount_per_so_line">
+                                            <span t-field="line.discount"/>
+                                        </td>
+                                        <td name="td_taxes" class="text-end">
+                                            <span t-out="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"/>
+                                        </td>
+                                        <td t-if="not line.is_downpayment" name="td_subtotal"
+                                            class="text-end o_price_total">
+                                            <span t-field="line.price_subtotal"
+                                                  groups="account.group_show_line_subtotals_tax_excluded"/>
+                                            <span t-field="line.price_total"
+                                                  groups="account.group_show_line_subtotals_tax_included"/>
+                                        </td>
+<!--                                        <td name="td_availability">-->
+<!--                                            <span t-field="line.customer_lead"/>-->
+<!--                                        </td>-->
+                                    </t>
+                                    <t t-elif="line.display_type == 'line_section'">
+                                        <td name="td_section_line" colspan="99">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <t t-set="current_section" t-value="line"/>
+                                        <t t-set="current_subtotal" t-value="0"/>
+                                    </t>
+                                    <t t-elif="line.display_type == 'line_note'">
+                                        <td name="td_note_line" colspan="99">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                    </t>
+                                </tr>
+
+                                <t t-if="current_section and (line_last or doc.order_line[line_index+1].display_type == 'line_section') and not line.is_downpayment">
+                                    <tr class="is-subtotal text-end">
+                                        <td name="td_section_subtotal" colspan="99">
+                                            <strong class="mr16">Subtotal</strong>
+                                            <span
+                                                    t-out="current_subtotal"
+                                                    t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
+                                            />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </tbody>
+                    </div>
+                </table>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

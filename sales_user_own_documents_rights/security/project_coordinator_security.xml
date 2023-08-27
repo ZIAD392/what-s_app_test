@@ -1,0 +1,7 @@
+<data>
+    <record id="group_stock_project_coordinator" model="res.groups">
+        <field name="name">Project Coordinator</field>
+        <field name="category_id" ref="base.module_category_inventory_inventory"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</data>

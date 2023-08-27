@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="group_generate_barcode" model="res.groups">
+            <field name="name">Generate Barcode</field>
+        </record>
+    </data>
+</odoo>

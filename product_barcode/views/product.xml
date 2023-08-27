@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_product_inherit" model="ir.ui.view">
+            <field name="name">product.template.product.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+               <xpath expr="//header" position="inside">
+                <button name="generate_barcode" string="Generate Barcode" type="object"  groups="product_barcode.group_generate_barcode"
+ class="oe_stat_button"/>
+               </xpath>
+
+                <xpath expr="//page[@name='general_information']/group/group[1]" position="inside">
+                        <field name="part_number"/>
+                </xpath>
+<!--                    <field  name="name"  position="after" >-->
+<!--                        <field name="part_number" string="Part Number" />-->
+<!--                    </field>-->
+<!--                <xpath expr="//form" position="attributes">-->
+<!--                    <attribute name="name">Product Template</attribute>-->
+<!--                </xpath>-->
+<!--                <field name="company_id" position="after">-->
+<!--                   <field name="part_number"/>-->
+<!--                </field>-->
+
+            </field>
+        </record>
+    </data>
+</odoo>

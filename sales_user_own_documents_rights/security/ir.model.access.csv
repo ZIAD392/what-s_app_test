@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_group_stock_project_coordinator,Access to Project Coordinator,base.model_res_users,sales_user_own_documents_rights.group_stock_project_coordinator,1,0,0,0
+
+
+
+
+
+
+
+
+
+
+
+

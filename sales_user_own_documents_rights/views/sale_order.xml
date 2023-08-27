@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">inherit1.sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="is_sales_man" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//label[@for='margin']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_sales_man','=',False)]}</attribute>
+                </xpath>
+
+                <xpath expr="//div[hasclass('text-nowrap')]" position="attributes">
+                    <attribute name="groups"/>
+                    <attribute name="attrs">{'invisible': [('is_sales_man','=',False)]}</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="attrs">
+                        {'invisible': ['|',('state', 'not in', ['sent']),('is_sales_man','=',False)]}
+                    </attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="attrs">
+                        {'invisible': ['|',('state', 'not in',['draft']),('is_sales_man','=',False)]}
+                    </attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='%(sale.action_view_sale_advance_payment_inv)d'][1]" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="attrs">
+                        {'invisible': ['|',('invoice_status', '!=', 'to invoice'),('is_sales_man','=',False)]}
+                    </attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='%(sale.action_view_sale_advance_payment_inv)d'][2]" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="attrs">
+                        {'invisible': ['|','|',('invoice_status', '!=', 'no'), ('state', '!=', 'sale'),('is_sales_man','=',False)]}
+                    </attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']/tree/field[@name='purchase_price']" position="attributes">
+                    <attribute name="groups"/>
+                    <attribute name="attrs">{'column_invisible': [('parent.is_sales_man','=',False)]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']/tree/field[@name='margin_percent']" position="attributes">
+                    <attribute name="groups"/>
+                    <attribute name="attrs">{'column_invisible': [('parent.is_sales_man','=',False)]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']/tree/field[@name='margin']" position="attributes">
+                    <attribute name="groups"/>
+                    <attribute name="attrs">{'column_invisible': [('parent.is_sales_man','=',False)]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('parent.is_sales_man','=',False)]}</attribute>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

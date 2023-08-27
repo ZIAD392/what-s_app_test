@@ -1,0 +1,270 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_employee_modification
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-01 14:14+0000\n"
+"PO-Revision-Date: 2023-03-01 14:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__ajeer
+msgid "Ajeer"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__certificate__bachelor
+msgid "Bachelor"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model,name:website_employee_modification.model_hr_employee_base
+msgid "Basic Employee"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__driving_license_category
+msgid "Category"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__certificate
+msgid "Certificate Level"
+msgstr ""
+
+#. module: website_employee_modification
+#: model_terms:ir.ui.view,arch_db:website_employee_modification.view_hr_employee_inherit
+msgid "Citizenship"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__consultant
+msgid "Consultant"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model,name:website_employee_modification.model_hr_contract_history
+msgid "Contract history"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__certificate__doctor
+msgid "Doctor"
+msgstr ""
+
+#. module: website_employee_modification
+#: model_terms:ir.ui.view,arch_db:website_employee_modification.view_hr_employee_inherit
+msgid "Driving License"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__driving_license_expiry_date
+msgid "Driving License Expiry Date"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__driving_license_issuance_date
+msgid "Driving License Issuance Date"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model,name:website_employee_modification.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model,name:website_employee_modification.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__employment_types
+msgid "Employment Type"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__english_name
+msgid "English Name"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__certificate__graduate
+msgid "Graduate"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model,name:website_employee_modification.model_ir_http
+msgid "HTTP Routing"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__driving_license_category__heavy
+msgid "Heavy Duty"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__id_expiry_date
+msgid "ID Expiry Date"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__id_issuance_date
+msgid "ID Issuance Date"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__identification_id
+msgid "ID No"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__certificate__intermediate
+msgid "Intermediate"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__international
+msgid "International Recruitment"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_contract__leave_salary
+msgid "Leave Salary"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__local
+msgid "Local Recruitment"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__certificate__master
+msgid "Master"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__driving_license_category__moto
+msgid "Motorcycle"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_contract__country_id
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_contract_history__country_id
+msgid "Nationality (Country)"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__certificate__other
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__other
+msgid "Other"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__part
+msgid "Part Time"
+msgstr ""
+
+#. module: website_employee_modification
+#: model_terms:ir.ui.view,arch_db:website_employee_modification.view_hr_employee_inherit
+msgid "Passport"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__passport_copy
+msgid "Passport Copy"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__passport_expiry_date
+msgid "Passport Expiry Date"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__passport_issuance_date
+msgid "Passport Issuance Date"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__work_phone
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee_base__work_phone
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee_public__work_phone
+msgid "Personal mobile"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__certificate__primary
+msgid "Primary"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__driving_license_category__private
+msgid "Private"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_contract__probation_period_end_date
+msgid "Probation Period End Date"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__profession
+msgid "Profession"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__remotely
+msgid "Remotely"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__saudi
+msgid "Saudi v"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__certificate__secondary
+msgid "Secondary"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_employee__sponsor
+msgid "Sponsor"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__sponsorship
+msgid "Sponsorship Transferring"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__tamheer
+msgid "Tamheer"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__driving_license_category__temp
+msgid "Temporary"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields,field_description:website_employee_modification.field_hr_contract__ticket_allowance
+msgid "Ticket Allowance"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__certificate__upper
+msgid "Upper intermediate"
+msgstr ""
+
+#. module: website_employee_modification
+#: model:ir.model.fields.selection,name:website_employee_modification.selection__hr_employee__employment_types__work
+msgid "Work Visit"
+msgstr ""
